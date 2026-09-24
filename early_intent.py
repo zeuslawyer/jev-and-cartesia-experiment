@@ -11,7 +11,7 @@ from rich.console import Console
 from lib.ink_replay import TURNS, replay
 from lib.jev import IVR, ask, build_menu_choice
 
-CONFIDENCE = 0.95
+CONFIDENCE_THRESHOLD = 0.95
 TOP_MENU = build_menu_choice(IVR)
 TOP_MENU.criteria["Not said yet"] = "The caller hasn't said what they need yet"  # mid-sentence, this is often true
 console = Console()
@@ -54,7 +54,7 @@ async def listen(turn):
     console.print(f"{t_end:>6} | [bold]turn.end[/]       | {final[-40:]:<40} | [bold]{final_pick}[/]")
 
     # 4. When did Jev first land on the final answer, confidently?
-    t_knew = min((t for t, pick, conf in drafts if pick == final_pick and conf >= CONFIDENCE), default=None)
+    t_knew = min((t for t, pick, conf in drafts if pick == final_pick and conf >= CONFIDENCE_THRESHOLD), default=None)
     wait_for_final = t_end + final_ms
     if t_knew is None:
         console.print(f"[red]Jev never got confident early. wait-for-final: {wait_for_final:.0f} ms[/]\n")
