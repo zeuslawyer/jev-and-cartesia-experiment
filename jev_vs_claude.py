@@ -19,7 +19,7 @@ from typesafe_sdk import Choice
 
 from lib.jev import IVR, ask
 
-CONFIDENCE = 0.95
+CONFIDENCE_THRESHOLD = 0.95
 RESULTS = "results/rows.json"
 ALL_ROWS = [json.loads(line) for line in open("data/transcripts.jsonl")]
 RUNS = int(sys.argv[1]) if len(sys.argv) > 1 and sys.argv[1].isdigit() else len(ALL_ROWS)
@@ -100,8 +100,8 @@ def print_report(rows):
     for category in dict.fromkeys(r["category"] for r in rows):
         subset = [r for r in rows if r["category"] == category]
         table.add_row(f"acc: {category}", *[f"{sum(r[a]['pick'] == r['expected'] for r in subset) / len(subset):.0%}" for a in arms])
-    confident = [r for r in rows if r["jev"]["conf"] >= CONFIDENCE]
-    table.add_row(f"jev conf >= {CONFIDENCE}", "", f"{len(confident)} rows, {sum(r['jev']['pick'] == r['expected'] for r in confident) / max(len(confident), 1):.0%} right")
+    confident = [r for r in rows if r["jev"]["conf"] >= CONFIDENCE_THRESHOLD]
+    table.add_row(f"jev conf >= {CONFIDENCE_THRESHOLD}", "", f"{len(confident)} rows, {sum(r['jev']['pick'] == r['expected'] for r in confident) / max(len(confident), 1):.0%} right")
     console.print(table)
 
     short = {label: label.split()[0][:8] for label in AGENTS}
