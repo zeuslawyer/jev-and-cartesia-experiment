@@ -5,6 +5,7 @@ Jev never sees the IVR menus, only the list of teams.
 The same request also asks one yes/no question: is this caller upset enough to need a human now?
 """
 import asyncio
+import sys
 
 from rich.console import Console
 from rich.tree import Tree
@@ -69,7 +70,9 @@ def show_old_way(buttons):
     """The IVR system: the full menu tree, the path a person presses, and how long they listen."""
     console.print("[red]Old way, IVR system:[/] the caller listens to the menus and presses buttons")
     console.print(build_ivr_tree(IVR, buttons, Tree(IVR["label"])))
+
     menu, options_heard = IVR, 0
+
     for number in buttons:
         options_heard += len(menu["options"])
         menu = menu["options"][number - 1]
@@ -100,8 +103,11 @@ async def show_new_way(transcript):
 
 
 async def main():
-    for idx, (transcript, buttons) in enumerate(EXAMPLES):
-        console.rule(title=f"============== EXAMPLE {idx+1}==============")
+    """Run every example, or pass example numbers (from 1) to run only those, e.g. `uv run ivr_killer.py 2`."""
+    numbers = [int(arg) for arg in sys.argv[1:]] or range(1, len(EXAMPLES) + 1)
+    for number in numbers:
+        transcript, buttons = EXAMPLES[number - 1]
+        console.rule(title=f"============== EXAMPLE {number} ==============")
         # Cartesia Ink-2 (speech-to-text) hands us what the caller said. No audio here: it's text.
         console.print(f'[cyan]Cartesia Ink-2 transcription:[/] "{transcript}"\n')
         show_old_way(buttons)
