@@ -1,0 +1,92 @@
+{
+  "label": "Skyline Air",
+  "description": "Main menu",
+  "options": [
+    {
+      "label": "Manage booking",
+      "description": "Passenger details, seats, extras and receipts on an existing booking (not changing the flight itself)",
+      "options": [
+        {
+          "label": "Change passenger details",
+          "description": "Fix a name, date of birth or passport number on a booking",
+          "options": [
+            {"label": "Name correction", "description": "Misspelled or changed passenger name", "options": [{"label": "Ticketing team", "description": "Handles name corrections on issued tickets"}]},
+            {"label": "Passport and ID details", "description": "Add or update passport or ID information", "options": [{"label": "Travel documents team", "description": "Handles passport, visa and ID details"}]}
+          ]
+        },
+        {
+          "label": "Seats and extras",
+          "description": "Choose a seat, add meals, extra legroom or pets",
+          "options": [
+            {"label": "Seat selection", "description": "Pick or change a seat, including paid seats", "options": [{"label": "Seating team", "description": "Handles seat selection and seat changes"}]},
+            {"label": "Meals and special requests", "description": "Special meals, wheelchairs, pets or unaccompanied minors", "options": [{"label": "Special services team", "description": "Handles meals, accessibility and special requests"}]}
+          ]
+        },
+        {"label": "Receipts and invoices", "description": "Get a receipt, invoice or copy of an itinerary", "options": [{"label": "Billing team", "description": "Handles receipts, invoices and payment records"}]}
+      ]
+    },
+    {
+      "label": "Cancellations and refunds",
+      "description": "Cancel a flight or ask about money back",
+      "options": [
+        {"label": "Cancel a booking", "description": "Cancel a flight you no longer want to take", "options": [{"label": "Cancellations team", "description": "Handles voluntary cancellations"}]},
+        {
+          "label": "Refund status",
+          "description": "Check on a refund you already requested",
+          "options": [
+            {"label": "Refund to card", "description": "Refund going back to the original payment card", "options": [{"label": "Refunds team", "description": "Handles card refunds"}]},
+            {"label": "Travel credit", "description": "Refund issued as a voucher or travel credit", "options": [{"label": "Travel credit team", "description": "Handles vouchers and travel credits"}]}
+          ]
+        },
+        {"label": "Airline cancelled my flight", "description": "Skyline Air cancelled your flight and you want compensation or a refund", "options": [{"label": "Disruption compensation team", "description": "Handles refunds and compensation for airline cancellations"}]}
+      ]
+    },
+    {
+      "label": "Flight status and changes",
+      "description": "Check a flight, or move to a different flight or date",
+      "options": [
+        {"label": "Flight status", "description": "Is a flight on time, delayed or cancelled, and which gate", "options": [{"label": "Automated flight status", "description": "Reads out live flight status"}]},
+        {
+          "label": "Change my flight",
+          "description": "Move to a different date, time or route",
+          "options": [
+            {"label": "Change date or time", "description": "Same route, different day or time", "options": [{"label": "Reservations team", "description": "Handles voluntary flight changes"}]},
+            {"label": "Change destination", "description": "Fly to a different city", "options": [{"label": "Reservations team", "description": "Handles voluntary flight changes"}]}
+          ]
+        },
+        {"label": "Missed or disrupted connection", "description": "Missed a connection or a delay broke your itinerary", "options": [{"label": "Rebooking team", "description": "Rebooks passengers after missed connections and delays"}]}
+      ]
+    },
+    {
+      "label": "Baggage",
+      "description": "Lost, delayed or damaged bags, and baggage rules",
+      "options": [
+        {"label": "Lost bag", "description": "Your bag never arrived and has not been found", "options": [{"label": "Baggage claims team", "description": "Handles lost baggage claims"}]},
+        {"label": "Delayed bag", "description": "Your bag is late and you want to track it", "options": [{"label": "Baggage tracing team", "description": "Tracks and delivers delayed bags"}]},
+        {"label": "Damaged bag", "description": "Your bag or its contents arrived damaged", "options": [{"label": "Baggage claims team", "description": "Handles damaged baggage claims"}]},
+        {
+          "label": "Baggage allowance",
+          "description": "How much you can bring, and buying extra bags",
+          "options": [
+            {"label": "Allowance rules", "description": "Weight and size limits for carry-on and checked bags", "options": [{"label": "Automated baggage info", "description": "Reads out baggage rules"}]},
+            {"label": "Buy extra bags", "description": "Add a checked bag or sports equipment to a booking", "options": [{"label": "Ancillary sales team", "description": "Sells extra bags and equipment"}]}
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Frequent flyer and upgrades",
+      "description": "SkyMiles points, status and cabin upgrades",
+      "options": [
+        {"label": "Missing points", "description": "Points from a flight or partner did not show up", "options": [{"label": "SkyMiles service team", "description": "Handles missing points claims"}]},
+        {"label": "Upgrade my seat", "description": "Upgrade to business or premium, with points or money", "options": [{"label": "Upgrades team", "description": "Handles cabin upgrades"}]},
+        {"label": "Status and membership", "description": "Tier status, account login or joining SkyMiles", "options": [{"label": "SkyMiles service team", "description": "Handles membership and status"}]}
+      ]
+    },
+    {
+      "label": "Speak to an agent",
+      "description": "Talk to a person about anything else",
+      "options": [{"label": "General reservations agent", "description": "A human agent for anything not covered above"}]
+    }
+  ]
+}

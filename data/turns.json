@@ -1,0 +1,401 @@
+[
+ {
+  "name": "clean",
+  "events": [
+   {
+    "t_ms": 0,
+    "type": "turn.start"
+   },
+   {
+    "t_ms": 350,
+    "type": "turn.update",
+    "transcript": "hi"
+   },
+   {
+    "t_ms": 700,
+    "type": "turn.update",
+    "transcript": "hi so"
+   },
+   {
+    "t_ms": 1050,
+    "type": "turn.update",
+    "transcript": "hi so my"
+   },
+   {
+    "t_ms": 1400,
+    "type": "turn.update",
+    "transcript": "hi so my bag"
+   },
+   {
+    "t_ms": 1750,
+    "type": "turn.update",
+    "transcript": "hi so my bag didn't"
+   },
+   {
+    "t_ms": 2100,
+    "type": "turn.update",
+    "transcript": "hi so my bag didn't come"
+   },
+   {
+    "t_ms": 2450,
+    "type": "turn.update",
+    "transcript": "hi so my bag didn't come off"
+   },
+   {
+    "t_ms": 2800,
+    "type": "turn.update",
+    "transcript": "hi so my bag didn't come off the"
+   },
+   {
+    "t_ms": 3150,
+    "type": "turn.update",
+    "transcript": "hi so my bag didn't come off the carousel"
+   },
+   {
+    "t_ms": 3500,
+    "type": "turn.update",
+    "transcript": "hi so my bag didn't come off the carousel in"
+   },
+   {
+    "t_ms": 3850,
+    "type": "turn.update",
+    "transcript": "hi so my bag didn't come off the carousel in denver"
+   },
+   {
+    "t_ms": 4200,
+    "type": "turn.update",
+    "transcript": "hi so my bag didn't come off the carousel in denver and"
+   },
+   {
+    "t_ms": 4550,
+    "type": "turn.update",
+    "transcript": "hi so my bag didn't come off the carousel in denver and nobody"
+   },
+   {
+    "t_ms": 4900,
+    "type": "turn.update",
+    "transcript": "hi so my bag didn't come off the carousel in denver and nobody can"
+   },
+   {
+    "t_ms": 5250,
+    "type": "turn.update",
+    "transcript": "hi so my bag didn't come off the carousel in denver and nobody can find"
+   },
+   {
+    "t_ms": 5600,
+    "type": "turn.update",
+    "transcript": "hi so my bag didn't come off the carousel in denver and nobody can find it"
+   },
+   {
+    "t_ms": 6000,
+    "type": "turn.eager_end",
+    "transcript": "hi so my bag didn't come off the carousel in denver and nobody can find it"
+   },
+   {
+    "t_ms": 6400,
+    "type": "turn.end",
+    "transcript": "hi so my bag didn't come off the carousel in denver and nobody can find it"
+   }
+  ]
+ },
+ {
+  "name": "eager end, then resume",
+  "events": [
+   {
+    "t_ms": 0,
+    "type": "turn.start"
+   },
+   {
+    "t_ms": 350,
+    "type": "turn.update",
+    "transcript": "yeah"
+   },
+   {
+    "t_ms": 700,
+    "type": "turn.update",
+    "transcript": "yeah i"
+   },
+   {
+    "t_ms": 1050,
+    "type": "turn.update",
+    "transcript": "yeah i need"
+   },
+   {
+    "t_ms": 1400,
+    "type": "turn.update",
+    "transcript": "yeah i need to"
+   },
+   {
+    "t_ms": 1750,
+    "type": "turn.update",
+    "transcript": "yeah i need to cancel"
+   },
+   {
+    "t_ms": 2100,
+    "type": "turn.update",
+    "transcript": "yeah i need to cancel my"
+   },
+   {
+    "t_ms": 2450,
+    "type": "turn.update",
+    "transcript": "yeah i need to cancel my flight"
+   },
+   {
+    "t_ms": 2850,
+    "type": "turn.eager_end",
+    "transcript": "yeah i need to cancel my flight"
+   },
+   {
+    "t_ms": 3150,
+    "type": "turn.resume"
+   },
+   {
+    "t_ms": 3500,
+    "type": "turn.update",
+    "transcript": "yeah i need to cancel my flight and"
+   },
+   {
+    "t_ms": 3850,
+    "type": "turn.update",
+    "transcript": "yeah i need to cancel my flight and um"
+   },
+   {
+    "t_ms": 4200,
+    "type": "turn.update",
+    "transcript": "yeah i need to cancel my flight and um get"
+   },
+   {
+    "t_ms": 4550,
+    "type": "turn.update",
+    "transcript": "yeah i need to cancel my flight and um get the"
+   },
+   {
+    "t_ms": 4900,
+    "type": "turn.update",
+    "transcript": "yeah i need to cancel my flight and um get the money"
+   },
+   {
+    "t_ms": 5250,
+    "type": "turn.update",
+    "transcript": "yeah i need to cancel my flight and um get the money back"
+   },
+   {
+    "t_ms": 5600,
+    "type": "turn.update",
+    "transcript": "yeah i need to cancel my flight and um get the money back on"
+   },
+   {
+    "t_ms": 5950,
+    "type": "turn.update",
+    "transcript": "yeah i need to cancel my flight and um get the money back on my"
+   },
+   {
+    "t_ms": 6300,
+    "type": "turn.update",
+    "transcript": "yeah i need to cancel my flight and um get the money back on my card"
+   },
+   {
+    "t_ms": 6700,
+    "type": "turn.eager_end",
+    "transcript": "yeah i need to cancel my flight and um get the money back on my card"
+   },
+   {
+    "t_ms": 7100,
+    "type": "turn.end",
+    "transcript": "yeah i need to cancel my flight and um get the money back on my card"
+   }
+  ]
+ },
+ {
+  "name": "garden path",
+  "events": [
+   {
+    "t_ms": 0,
+    "type": "turn.start"
+   },
+   {
+    "t_ms": 350,
+    "type": "turn.update",
+    "transcript": "i"
+   },
+   {
+    "t_ms": 700,
+    "type": "turn.update",
+    "transcript": "i want"
+   },
+   {
+    "t_ms": 1050,
+    "type": "turn.update",
+    "transcript": "i want to"
+   },
+   {
+    "t_ms": 1400,
+    "type": "turn.update",
+    "transcript": "i want to cancel"
+   },
+   {
+    "t_ms": 1750,
+    "type": "turn.update",
+    "transcript": "i want to cancel my"
+   },
+   {
+    "t_ms": 2100,
+    "type": "turn.update",
+    "transcript": "i want to cancel my uh"
+   },
+   {
+    "t_ms": 2500,
+    "type": "turn.eager_end",
+    "transcript": "i want to cancel my uh"
+   },
+   {
+    "t_ms": 2800,
+    "type": "turn.resume"
+   },
+   {
+    "t_ms": 3150,
+    "type": "turn.update",
+    "transcript": "i want to cancel my uh actually"
+   },
+   {
+    "t_ms": 3500,
+    "type": "turn.update",
+    "transcript": "i want to cancel my uh actually no"
+   },
+   {
+    "t_ms": 3850,
+    "type": "turn.update",
+    "transcript": "i want to cancel my uh actually no sorry"
+   },
+   {
+    "t_ms": 4200,
+    "type": "turn.update",
+    "transcript": "i want to cancel my uh actually no sorry i"
+   },
+   {
+    "t_ms": 4550,
+    "type": "turn.update",
+    "transcript": "i want to cancel my uh actually no sorry i just"
+   },
+   {
+    "t_ms": 4900,
+    "type": "turn.update",
+    "transcript": "i want to cancel my uh actually no sorry i just wanna"
+   },
+   {
+    "t_ms": 5250,
+    "type": "turn.update",
+    "transcript": "i want to cancel my uh actually no sorry i just wanna upgrade"
+   },
+   {
+    "t_ms": 5600,
+    "type": "turn.update",
+    "transcript": "i want to cancel my uh actually no sorry i just wanna upgrade my"
+   },
+   {
+    "t_ms": 5950,
+    "type": "turn.update",
+    "transcript": "i want to cancel my uh actually no sorry i just wanna upgrade my seat"
+   },
+   {
+    "t_ms": 6300,
+    "type": "turn.update",
+    "transcript": "i want to cancel my uh actually no sorry i just wanna upgrade my seat to"
+   },
+   {
+    "t_ms": 6650,
+    "type": "turn.update",
+    "transcript": "i want to cancel my uh actually no sorry i just wanna upgrade my seat to business"
+   },
+   {
+    "t_ms": 7050,
+    "type": "turn.eager_end",
+    "transcript": "i want to cancel my uh actually no sorry i just wanna upgrade my seat to business"
+   },
+   {
+    "t_ms": 7450,
+    "type": "turn.end",
+    "transcript": "i want to cancel my uh actually no sorry i just wanna upgrade my seat to business"
+   }
+  ]
+ },
+ {
+  "name": "question",
+  "events": [
+   {
+    "t_ms": 0,
+    "type": "turn.start"
+   },
+   {
+    "t_ms": 350,
+    "type": "turn.update",
+    "transcript": "hey"
+   },
+   {
+    "t_ms": 700,
+    "type": "turn.update",
+    "transcript": "hey um"
+   },
+   {
+    "t_ms": 1050,
+    "type": "turn.update",
+    "transcript": "hey um is"
+   },
+   {
+    "t_ms": 1400,
+    "type": "turn.update",
+    "transcript": "hey um is my"
+   },
+   {
+    "t_ms": 1750,
+    "type": "turn.update",
+    "transcript": "hey um is my flight"
+   },
+   {
+    "t_ms": 2100,
+    "type": "turn.update",
+    "transcript": "hey um is my flight to"
+   },
+   {
+    "t_ms": 2450,
+    "type": "turn.update",
+    "transcript": "hey um is my flight to boston"
+   },
+   {
+    "t_ms": 2800,
+    "type": "turn.update",
+    "transcript": "hey um is my flight to boston tomorrow"
+   },
+   {
+    "t_ms": 3150,
+    "type": "turn.update",
+    "transcript": "hey um is my flight to boston tomorrow morning"
+   },
+   {
+    "t_ms": 3500,
+    "type": "turn.update",
+    "transcript": "hey um is my flight to boston tomorrow morning still"
+   },
+   {
+    "t_ms": 3850,
+    "type": "turn.update",
+    "transcript": "hey um is my flight to boston tomorrow morning still on"
+   },
+   {
+    "t_ms": 4200,
+    "type": "turn.update",
+    "transcript": "hey um is my flight to boston tomorrow morning still on time"
+   },
+   {
+    "t_ms": 4600,
+    "type": "turn.eager_end",
+    "transcript": "hey um is my flight to boston tomorrow morning still on time"
+   },
+   {
+    "t_ms": 5000,
+    "type": "turn.end",
+    "transcript": "hey um is my flight to boston tomorrow morning still on time"
+   }
+  ]
+ }
+]

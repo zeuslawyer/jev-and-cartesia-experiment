@@ -1,0 +1,150 @@
+{"text": "Hi, I need to change the name on my ticket, they spelled it wrong.", "expected": "Manage booking", "category": "clear"}
+{"text": "Can I, um, pick a window seat for my flight on Thursday?", "expected": "Manage booking", "category": "clear"}
+{"text": "I need a receipt for my flight last week for my expenses.", "expected": "Manage booking", "category": "clear"}
+{"text": "I wanna add a vegetarian meal to my booking.", "expected": "Manage booking", "category": "clear"}
+{"text": "Yeah, I need to add my passport number to the reservation.", "expected": "Manage booking", "category": "clear"}
+{"text": "I need to cancel my flight to Chicago.", "expected": "Cancellations and refunds", "category": "clear"}
+{"text": "Where's my refund? I asked for it like three weeks ago.", "expected": "Cancellations and refunds", "category": "clear"}
+{"text": "You guys cancelled my flight and I want my money back.", "expected": "Cancellations and refunds", "category": "clear"}
+{"text": "I'd like to cancel my booking please, reference is, uh, K-L-seven-four-two.", "expected": "Cancellations and refunds", "category": "clear"}
+{"text": "I got a travel credit instead of a refund and I want to know how to use it.", "expected": "Cancellations and refunds", "category": "clear"}
+{"text": "Is flight four-oh-two to Seattle on time?", "expected": "Flight status and changes", "category": "clear"}
+{"text": "I need to move my flight to next Tuesday.", "expected": "Flight status and changes", "category": "clear"}
+{"text": "I missed my connection in Dallas, what do I do?", "expected": "Flight status and changes", "category": "clear"}
+{"text": "Can I switch to the earlier flight tomorrow morning?", "expected": "Flight status and changes", "category": "clear"}
+{"text": "What gate is my flight leaving from?", "expected": "Flight status and changes", "category": "clear"}
+{"text": "My bag didn't come off the carousel.", "expected": "Baggage", "category": "clear"}
+{"text": "My suitcase came back with a broken wheel.", "expected": "Baggage", "category": "clear"}
+{"text": "How many bags can I check on an economy ticket?", "expected": "Baggage", "category": "clear"}
+{"text": "I want to add a second checked bag to my trip.", "expected": "Baggage", "category": "clear"}
+{"text": "They said my bag's delayed, can you tell me where it is?", "expected": "Baggage", "category": "clear"}
+{"text": "My points from the Denver flight never showed up.", "expected": "Frequent flyer and upgrades", "category": "clear"}
+{"text": "Can I use my miles to upgrade to business?", "expected": "Frequent flyer and upgrades", "category": "clear"}
+{"text": "I want to join your frequent flyer program.", "expected": "Frequent flyer and upgrades", "category": "clear"}
+{"text": "When does my gold status expire?", "expected": "Frequent flyer and upgrades", "category": "clear"}
+{"text": "I can't log into my SkyMiles account.", "expected": "Frequent flyer and upgrades", "category": "clear"}
+{"text": "Can I just talk to a real person please?", "expected": "Speak to an agent", "category": "clear"}
+{"text": "Agent. Agent. Representative.", "expected": "Speak to an agent", "category": "clear"}
+{"text": "I'd like to speak with someone, a human.", "expected": "Speak to an agent", "category": "clear"}
+{"text": "Put me through to an operator.", "expected": "Speak to an agent", "category": "clear"}
+{"text": "I want to talk to a person, not a machine.", "expected": "Speak to an agent", "category": "clear"}
+{"text": "I need to fix the spelling of my name and, uh, also pick a seat while I'm at it.", "expected": "Manage booking", "category": "multi_intent"}
+{"text": "I wanna add a meal and also, do you know if the flight's on time?", "expected": "Manage booking", "category": "multi_intent"}
+{"text": "Can I get an invoice for this booking, and also how do I join SkyMiles?", "expected": "Manage booking", "category": "multi_intent"}
+{"text": "I need to update my passport details and, um, maybe add a bag later.", "expected": "Manage booking", "category": "multi_intent"}
+{"text": "Mainly I need to request a wheelchair, and I guess check my points too.", "expected": "Manage booking", "category": "multi_intent"}
+{"text": "I need to cancel my flight, and I also have some points I wanna check on.", "expected": "Cancellations and refunds", "category": "multi_intent"}
+{"text": "My refund hasn't arrived and, uh, also my bag was a bit scratched but that's minor.", "expected": "Cancellations and refunds", "category": "multi_intent"}
+{"text": "Please cancel the booking and then I'll probably rebook later with miles.", "expected": "Cancellations and refunds", "category": "multi_intent"}
+{"text": "You cancelled my flight, I want a refund, and honestly I'm thinking of never flying with you again.", "expected": "Cancellations and refunds", "category": "multi_intent"}
+{"text": "Cancel my return leg, and, um, do I need to pick a new seat on the outbound?", "expected": "Cancellations and refunds", "category": "multi_intent"}
+{"text": "I need to change my flight to Friday, and can I bring my golf clubs?", "expected": "Flight status and changes", "category": "multi_intent"}
+{"text": "Is my flight delayed? Because if it is I'll need to rebook my connection.", "expected": "Flight status and changes", "category": "multi_intent"}
+{"text": "I missed my connection and I think my bag is still on the other plane.", "expected": "Flight status and changes", "category": "multi_intent"}
+{"text": "Move me to the seven a.m. flight, and I'd like to use points for an upgrade if I can.", "expected": "Flight status and changes", "category": "multi_intent"}
+{"text": "I wanna fly into Oakland instead of San Francisco, and also get a receipt after.", "expected": "Flight status and changes", "category": "multi_intent"}
+{"text": "My bag is lost and I need it before my meeting tomorrow, also can I get a refund on the bag fee?", "expected": "Baggage", "category": "multi_intent"}
+{"text": "My suitcase is damaged and I want to, um, also know about points for the flight.", "expected": "Baggage", "category": "multi_intent"}
+{"text": "Can I add a bag, and is the flight still leaving at nine?", "expected": "Baggage", "category": "multi_intent"}
+{"text": "Where's my delayed bag? And while I've got you, how do I get a copy of my itinerary?", "expected": "Baggage", "category": "multi_intent"}
+{"text": "What's the carry-on size limit, and do I get lounge access with my ticket?", "expected": "Baggage", "category": "multi_intent"}
+{"text": "My points are missing and I also want to upgrade my next flight.", "expected": "Frequent flyer and upgrades", "category": "multi_intent"}
+{"text": "I want to upgrade to premium, and, uh, can I pick my seat there too?", "expected": "Frequent flyer and upgrades", "category": "multi_intent"}
+{"text": "How do I get platinum status, and is there wifi on the plane?", "expected": "Frequent flyer and upgrades", "category": "multi_intent"}
+{"text": "My SkyMiles account is locked and I've got a flight on Monday I need to check.", "expected": "Frequent flyer and upgrades", "category": "multi_intent"}
+{"text": "I want to use my miles for an upgrade and then maybe change my return date.", "expected": "Frequent flyer and upgrades", "category": "multi_intent"}
+{"text": "It's complicated, there's a refund and a bag and a seat thing, I just need a person.", "expected": "Speak to an agent", "category": "multi_intent"}
+{"text": "I've got like four different problems, can I talk to someone?", "expected": "Speak to an agent", "category": "multi_intent"}
+{"text": "Get me a human, and yes it's about my booking but I don't want the menu.", "expected": "Speak to an agent", "category": "multi_intent"}
+{"text": "Honestly just connect me to somebody, it's about a flight and some points.", "expected": "Speak to an agent", "category": "multi_intent"}
+{"text": "I need a representative, my situation involves two bookings and a credit.", "expected": "Speak to an agent", "category": "multi_intent"}
+{"text": "I don't want to change the flight, I just want to pick a different seat.", "expected": "Manage booking", "category": "negation"}
+{"text": "Not a refund, I just need a receipt for what I paid.", "expected": "Manage booking", "category": "negation"}
+{"text": "I'm not cancelling, I just need to fix my last name on the ticket.", "expected": "Manage booking", "category": "negation"}
+{"text": "It's not about bags, I need to request a wheelchair at the gate.", "expected": "Manage booking", "category": "negation"}
+{"text": "No, no, not the flight time, I need to add my passport info.", "expected": "Manage booking", "category": "negation"}
+{"text": "I don't want to move it, I want to cancel it completely.", "expected": "Cancellations and refunds", "category": "negation"}
+{"text": "I don't need a new flight, I just want my money back.", "expected": "Cancellations and refunds", "category": "negation"}
+{"text": "Not a voucher, I want the refund on my card.", "expected": "Cancellations and refunds", "category": "negation"}
+{"text": "I'm not asking about status, I'm asking where my refund is.", "expected": "Cancellations and refunds", "category": "negation"}
+{"text": "Don't rebook me, just cancel the whole thing.", "expected": "Cancellations and refunds", "category": "negation"}
+{"text": "I don't want to cancel, I just need to move it to Friday.", "expected": "Flight status and changes", "category": "negation"}
+{"text": "Not a refund, I'd rather just switch to a later flight.", "expected": "Flight status and changes", "category": "negation"}
+{"text": "I'm not calling about my bag, I'm calling about whether the flight's delayed.", "expected": "Flight status and changes", "category": "negation"}
+{"text": "I don't want a credit, I want to get on the next flight out.", "expected": "Flight status and changes", "category": "negation"}
+{"text": "No upgrade, I just need to change the date.", "expected": "Flight status and changes", "category": "negation"}
+{"text": "My bag's not lost, it's just really late. Where is it?", "expected": "Baggage", "category": "negation"}
+{"text": "It's not the flight, it's my suitcase, it's cracked.", "expected": "Baggage", "category": "negation"}
+{"text": "I don't want to change anything, I just want to know the weight limit for bags.", "expected": "Baggage", "category": "negation"}
+{"text": "Not about seats, about adding a bag for my skis.", "expected": "Baggage", "category": "negation"}
+{"text": "I'm not cancelling anything, I just need my luggage found.", "expected": "Baggage", "category": "negation"}
+{"text": "Not a refund, no, I want the points from my last flight.", "expected": "Frequent flyer and upgrades", "category": "negation"}
+{"text": "I don't want to change flights, I want to upgrade the one I've got.", "expected": "Frequent flyer and upgrades", "category": "negation"}
+{"text": "I'm not asking about a booking, I'm asking about my SkyMiles status.", "expected": "Frequent flyer and upgrades", "category": "negation"}
+{"text": "Not seat selection, an actual upgrade to business class.", "expected": "Frequent flyer and upgrades", "category": "negation"}
+{"text": "I don't need a refund, I need the missing miles added.", "expected": "Frequent flyer and upgrades", "category": "negation"}
+{"text": "I don't want the menu, I don't want a robot, just a person.", "expected": "Speak to an agent", "category": "negation"}
+{"text": "No, none of those options, let me talk to someone.", "expected": "Speak to an agent", "category": "negation"}
+{"text": "I don't want to explain it to a machine, get me an agent.", "expected": "Speak to an agent", "category": "negation"}
+{"text": "Not baggage, not refunds, not any of that. A human please.", "expected": "Speak to an agent", "category": "negation"}
+{"text": "I'm not gonna press buttons, connect me to a representative.", "expected": "Speak to an agent", "category": "negation"}
+{"text": "Um, there's something wrong with how my name shows up on the thing.", "expected": "Manage booking", "category": "vague"}
+{"text": "I need to, uh, sort out where I'm sitting.", "expected": "Manage booking", "category": "vague"}
+{"text": "My company needs some paperwork for the trip.", "expected": "Manage booking", "category": "vague"}
+{"text": "My mum needs some help getting to the plane, like assistance.", "expected": "Manage booking", "category": "vague"}
+{"text": "There's some detail on the reservation that's not right, the ID bit.", "expected": "Manage booking", "category": "vague"}
+{"text": "I, um, I don't think I'm gonna go on the trip anymore.", "expected": "Cancellations and refunds", "category": "vague"}
+{"text": "I'm still waiting on that money from before.", "expected": "Cancellations and refunds", "category": "vague"}
+{"text": "The trip's off, so, what happens now?", "expected": "Cancellations and refunds", "category": "vague"}
+{"text": "You guys called it off, the flight, so what do I get?", "expected": "Cancellations and refunds", "category": "vague"}
+{"text": "I've got this credit thing and I don't know what to do with it.", "expected": "Cancellations and refunds", "category": "vague"}
+{"text": "Is it, uh, is it still going ahead? The one to Boston?", "expected": "Flight status and changes", "category": "vague"}
+{"text": "Something came up and I need to go a different day.", "expected": "Flight status and changes", "category": "vague"}
+{"text": "I'm stuck in Phoenix, the second plane left without me.", "expected": "Flight status and changes", "category": "vague"}
+{"text": "Is it running late? I'm trying to figure out when to leave for the airport.", "expected": "Flight status and changes", "category": "vague"}
+{"text": "I kinda need to go somewhere else now, not Denver.", "expected": "Flight status and changes", "category": "vague"}
+{"text": "My stuff didn't make it.", "expected": "Baggage", "category": "vague"}
+{"text": "The thing I checked in came out all smashed up.", "expected": "Baggage", "category": "vague"}
+{"text": "How much can I bring? Like, stuff-wise.", "expected": "Baggage", "category": "vague"}
+{"text": "Any news on my suitcase from yesterday?", "expected": "Baggage", "category": "vague"}
+{"text": "I'm bringing my surfboard, is that, um, a thing I need to sort?", "expected": "Baggage", "category": "vague"}
+{"text": "The miles thing isn't adding up.", "expected": "Frequent flyer and upgrades", "category": "vague"}
+{"text": "I'd like to sit up front this time, you know, the nicer seats.", "expected": "Frequent flyer and upgrades", "category": "vague"}
+{"text": "My card level, or tier, or whatever, did it change?", "expected": "Frequent flyer and upgrades", "category": "vague"}
+{"text": "I fly with you a lot, is there some kind of program?", "expected": "Frequent flyer and upgrades", "category": "vague"}
+{"text": "Can I use the points to make it, um, fancier?", "expected": "Frequent flyer and upgrades", "category": "vague"}
+{"text": "It's hard to explain, can someone just help me?", "expected": "Speak to an agent", "category": "vague"}
+{"text": "I've got a weird situation, is there anyone there?", "expected": "Speak to an agent", "category": "vague"}
+{"text": "Hello? Is this a person? I need a person.", "expected": "Speak to an agent", "category": "vague"}
+{"text": "None of this is working, who can I talk to?", "expected": "Speak to an agent", "category": "vague"}
+{"text": "It doesn't really fit any of the options, can I speak to somebody?", "expected": "Speak to an agent", "category": "vague"}
+{"text": "What time does check-in open?", "expected": "stay", "category": "no_handoff"}
+{"text": "Is there wifi on the plane?", "expected": "stay", "category": "no_handoff"}
+{"text": "Thanks, that's all I needed.", "expected": "stay", "category": "no_handoff"}
+{"text": "Sorry, can you say that again?", "expected": "stay", "category": "no_handoff"}
+{"text": "Hang on one sec, let me grab my, um, my booking number.", "expected": "stay", "category": "no_handoff"}
+{"text": "Okay, great, thank you so much.", "expected": "stay", "category": "no_handoff"}
+{"text": "How early should I get to the airport for an international flight?", "expected": "stay", "category": "no_handoff"}
+{"text": "Which terminal do you fly out of at JFK?", "expected": "stay", "category": "no_handoff"}
+{"text": "Do you serve food on the flight?", "expected": "stay", "category": "no_handoff"}
+{"text": "Hi, good morning.", "expected": "stay", "category": "no_handoff"}
+{"text": "Yeah, that's right.", "expected": "stay", "category": "no_handoff"}
+{"text": "No, that's everything, bye.", "expected": "stay", "category": "no_handoff"}
+{"text": "Can I bring my laptop through security?", "expected": "stay", "category": "no_handoff"}
+{"text": "What's the, uh, the website address again?", "expected": "stay", "category": "no_handoff"}
+{"text": "Do you have a mobile app?", "expected": "stay", "category": "no_handoff"}
+{"text": "How long is the flight to Miami, roughly?", "expected": "stay", "category": "no_handoff"}
+{"text": "Is the airport lounge in terminal two?", "expected": "stay", "category": "no_handoff"}
+{"text": "Can you spell that for me?", "expected": "stay", "category": "no_handoff"}
+{"text": "Okay, one moment, my kid's talking to me.", "expected": "stay", "category": "no_handoff"}
+{"text": "Do I need to print my boarding pass?", "expected": "stay", "category": "no_handoff"}
+{"text": "Are there power outlets at the seats?", "expected": "stay", "category": "no_handoff"}
+{"text": "Is online check-in available for my flight?", "expected": "stay", "category": "no_handoff"}
+{"text": "Mm-hmm, okay, got it.", "expected": "stay", "category": "no_handoff"}
+{"text": "What are your phone line hours?", "expected": "stay", "category": "no_handoff"}
+{"text": "Is it, uh, is it the same number for Spanish?", "expected": "stay", "category": "no_handoff"}
+{"text": "Does the plane have entertainment screens?", "expected": "stay", "category": "no_handoff"}
+{"text": "Perfect, you've been really helpful.", "expected": "stay", "category": "no_handoff"}
+{"text": "Can I bring a bottle of water through security?", "expected": "stay", "category": "no_handoff"}
+{"text": "What's the time difference in Honolulu?", "expected": "stay", "category": "no_handoff"}
+{"text": "Sorry, I didn't catch that, what was the first part?", "expected": "stay", "category": "no_handoff"}
