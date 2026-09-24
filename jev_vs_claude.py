@@ -3,10 +3,12 @@ MENTAL MODEL: In a multi-agent voice system, a router decides: stay, or hand off
 Today that's usually an LLM tool call. Jev replaces that router and runs before the
 conversation LLM. Same transcripts, same agent descriptions, two routers. Who's faster and more accurate?
 Run once to call the APIs; add --report to re-print from saved results without calling anything.
+Pass a number to route fewer calls, e.g. `uv run jev_vs_claude.py 10`.
 """
 import asyncio
 import json
 import os
+import random
 import sys
 import time
 
@@ -19,7 +21,9 @@ from lib.jev import IVR, ask
 
 CONFIDENCE = 0.95
 RESULTS = "results/rows.json"
-ROWS = [json.loads(line) for line in open("data/transcripts.jsonl")]
+ALL_ROWS = [json.loads(line) for line in open("data/transcripts.jsonl")]
+RUNS = int(sys.argv[1]) if len(sys.argv) > 1 and sys.argv[1].isdigit() else len(ALL_ROWS)
+ROWS = random.Random(0).sample(ALL_ROWS, min(RUNS, len(ALL_ROWS)))  # fixed seed: same mix of categories every run
 console = Console()
 
 # 1. The agents. Same one-line descriptions for both routers.
@@ -60,7 +64,10 @@ async def run_bench():
     for i, row in enumerate(ROWS, 1):
         row["claude"] = await route_with_claude(row["text"])
         row["jev"] = await route_with_jev(row["text"])
-        console.print(f"[dim]{i}/{len(ROWS)}[/] claude={row['claude']['pick']:<28} jev={row['jev']['pick']:<28} expected={row['expected']}")
+        console.print(
+            f"[dim]{i}/{len(ROWS)}[/] claude {row['claude']['ms']:>5.0f} ms  jev {row['jev']['ms']:>4.0f} ms | "
+            f"claude={row['claude']['pick']}  jev={row['jev']['pick']}  expected={row['expected']}"
+        )
     os.makedirs("results", exist_ok=True)
     json.dump(ROWS, open(RESULTS, "w"), indent=1)
 
