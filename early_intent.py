@@ -9,7 +9,7 @@ import asyncio
 from rich.console import Console
 
 from lib.ink_replay import TURNS, replay
-from lib.jev import IVR, ask, build_menu_choice
+from lib.jev import IVR, ask_jev, build_menu_choice
 
 CONFIDENCE_THRESHOLD = 0.95
 TOP_MENU = build_menu_choice(IVR)
@@ -18,7 +18,7 @@ console = Console()
 
 
 async def pick_top_menu(transcript):
-    response, ms = await ask(transcript, {"pick": TOP_MENU})
+    response, ms = await ask_jev(transcript, {"pick": TOP_MENU})
     answer = response.choices["pick"]
     return answer.choice, answer.confidence, ms
 

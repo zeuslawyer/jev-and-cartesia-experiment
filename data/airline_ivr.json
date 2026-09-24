@@ -84,7 +84,7 @@
       ]
     },
     {
-      "label": "Speak to an agent",
+      "label": "Speak to a human",
       "description": "Talk to a person about anything else",
       "options": [{"label": "Human agent", "description": "A human agent for anything not covered above"}]
     }

@@ -17,7 +17,7 @@ def build_menu_choice(menu):
     )
 
 
-async def ask(state, questions):
+async def ask_jev(state, questions):
     """Send one request to Jev. Returns (answers, milliseconds it took)."""
     start = time.perf_counter()
     response = await client.system_one(state=state, questions=questions)

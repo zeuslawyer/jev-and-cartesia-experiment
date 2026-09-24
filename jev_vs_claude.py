@@ -17,7 +17,7 @@ from rich.console import Console
 from rich.table import Table
 from typesafe_sdk import Choice
 
-from lib.jev import IVR, ask
+from lib.jev import IVR, ask_jev
 
 CONFIDENCE_THRESHOLD = 0.95
 RESULTS = "results/rows.json"
@@ -55,7 +55,7 @@ ROUTER = Choice(instructions="Skyline Air phone line router. Which agent should 
 
 
 async def route_with_jev(text):
-    response, ms = await ask(text, {"agent": ROUTER})
+    response, ms = await ask_jev(text, {"agent": ROUTER})
     answer = response.choices["agent"]
     return {"pick": answer.choice, "ms": ms, "conf": answer.confidence, "usd": response.usage.input_tokens * 0.042 / 1e6}
 

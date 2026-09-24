@@ -11,7 +11,7 @@ from rich.console import Console
 from rich.tree import Tree
 from typesafe_sdk import Choice, Noul
 
-from lib.jev import IVR, ask
+from lib.jev import IVR, ask_jev
 
 CONFIDENCE_THRESHOLD = 0.95
 SECONDS_PER_OPTION = 3  # how long an IVR system takes to read out one option
@@ -91,14 +91,14 @@ def show_old_way(buttons):
 
 async def show_new_way(transcript):
     """Jev: one request, two questions answered in parallel. Which team, and does the caller need a human?"""
-    response, ms = await ask(transcript, {"team": PICK_TEAM, "escalate": ESCALATE})
+    response, ms = await ask_jev(transcript, {"team": PICK_TEAM, "escalate": ESCALATE})
     is_upset = response.nouls["escalate"].noul
     answer = response.choices["team"]
     console.print(f"[magenta]needs a human?[/] {is_upset:.2f}")
     console.print(
         f"[yellow]Jev chose: [bold]{answer.choice}[/] | confidence: {answer.confidence:.2f} | latency {ms:.0f} ms")
     console.print(
-        f'[cyan]New way, Jev:[/] the caller says one sentence: "{transcript}" and spent ~{ms/1000} seconds to find the right team')
+        f'[cyan]New way, Jev:[/] the caller says one sentence: "{transcript}" and spent ~{ms/1000:.1f} seconds to decide routing')
 
     # Upset caller? Skip everything and hand them to a person.
     if is_upset >= CONFIDENCE_THRESHOLD:
@@ -110,7 +110,7 @@ async def show_new_way(transcript):
         first, second = sorted(
             answer.probabilities, key=lambda team: answer.probabilities[team], reverse=True)[:2]
         console.print(f'    >>>> [yellow]Jev confidence below {CONFIDENCE_THRESHOLD}.[/]' )
-        console.print( f'    >>>> [red]Agent clarifies:[/]: "Is this for {first} or {second}?"\n')
+        console.print( f'    >>>> [red]Voice Agent clarifies:[/] "Is this for {first} or {second}?"\n')
     else:
         console.print(f"\n[green]Transfer to: {answer.choice}[/]  (Sonic would say: \"Connecting you now.\")\n")
 
