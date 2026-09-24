@@ -15,7 +15,7 @@ from lib.jev import IVR, ask
 
 CONFIDENCE_THRESHOLD = 0.95
 SECONDS_PER_OPTION = 3  # how long an IVR system takes to read out one option
-HUMAN_TEAM = "General reservations agent"
+HUMAN_TEAM = "Human agent"
 
 # Each example: what the caller said, and the buttons a person would press in the IVR system.
 EXAMPLES = [

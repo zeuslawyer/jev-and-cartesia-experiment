@@ -50,8 +50,8 @@
           "label": "Change my flight",
           "description": "Move to a different date, time or route",
           "options": [
-            {"label": "Change date or time", "description": "Same route, different day or time", "options": [{"label": "Reservations team", "description": "Handles voluntary flight changes"}]},
-            {"label": "Change destination", "description": "Fly to a different city", "options": [{"label": "Reservations team", "description": "Handles voluntary flight changes"}]}
+            {"label": "Change date or time", "description": "Same route, different day or time", "options": [{"label": "Flight changes team", "description": "Handles voluntary flight changes"}]},
+            {"label": "Change destination", "description": "Fly to a different city", "options": [{"label": "Flight changes team", "description": "Handles voluntary flight changes"}]}
           ]
         },
         {"label": "Missed or disrupted connection", "description": "Missed a connection or a delay broke your itinerary", "options": [{"label": "Rebooking team", "description": "Rebooks passengers after missed connections and delays"}]}
@@ -86,7 +86,7 @@
     {
       "label": "Speak to an agent",
       "description": "Talk to a person about anything else",
-      "options": [{"label": "General reservations agent", "description": "A human agent for anything not covered above"}]
+      "options": [{"label": "Human agent", "description": "A human agent for anything not covered above"}]
     }
   ]
 }
