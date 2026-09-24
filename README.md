@@ -139,7 +139,7 @@ Transfer to: Baggage claims team
 
 The second caller is vague, so Jev isn't confident and the agent asks one follow-up question. The last caller is angry, so Jev prints `-> escalating straight to a human`.
 
-To run only some examples, pass their numbers (1 to 5), e.g. `uv run ivr_killer.py 2`.
+To run only some examples, pass their indexes (0 to 4), e.g. `uv run ivr_killer.py 1`.
 
 **If it didn't work:** `TypeSafeAuthenticationError` means the TypeSafe key is wrong. Fix it in `.env` (Step 4).
 

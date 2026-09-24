@@ -76,17 +76,18 @@ def show_old_way(buttons):
     for number in buttons:
         options_heard += len(menu["options"])
         menu = menu["options"][number - 1]
-    console.print(f"IVR system: {len(buttons)} menus heard, ~{options_heard * SECONDS_PER_OPTION}s of listening\n")
+    console.print(f"\n[red]Old way, IVR system:[/] {len(buttons)} menus heard, ~{options_heard * SECONDS_PER_OPTION}s of listening\n")
 
 
 async def show_new_way(transcript):
     """Jev: one request, two questions answered in parallel. Which team, and does the caller need a human?"""
-    console.print("[cyan]New way, Jev:[/] the caller says one sentence")
     response, ms = await ask(transcript, {"team": PICK_TEAM, "escalate": ESCALATE})
     is_upset = response.nouls["escalate"].noul
     answer = response.choices["team"]
     console.print(f"[magenta]needs a human?[/] {is_upset:.2f}")
     console.print(f"[yellow]Jev chose: [bold]{answer.choice}[/] | confidence: {answer.confidence:.2f} | latency {ms:.0f} ms")
+    console.print(f'[cyan]New way, Jev:[/] the caller says one sentence: "{transcript}"\n and spent ~{ms/1000} seconds to find the right team' )
+
 
     # Upset caller? Skip everything and hand them to a person.
     if is_upset >= CONFIDENCE_THRESHOLD:
@@ -99,17 +100,17 @@ async def show_new_way(transcript):
             f'    >>>> [yellow]Jev confidence below {CONFIDENCE_THRESHOLD}.[/] Agent asks: "Is this for {first} or {second}?"\n'
         )
     else:
-        console.print(f"[green]Transfer to: {answer.choice}[/]  (Sonic would say: \"Connecting you now.\")\n")
+        console.print(f"\n[green]Transfer to: {answer.choice}[/]  (Sonic would say: \"Connecting you now.\")\n")
 
 
 async def main():
-    """Run every example, or pass example numbers (from 1) to run only those, e.g. `uv run ivr_killer.py 2`."""
-    numbers = [int(arg) for arg in sys.argv[1:]] or range(1, len(EXAMPLES) + 1)
+    """Run every example, or pass example indexes (from 0) to run only those, e.g. `uv run ivr_killer.py 1`."""
+    numbers = [int(arg) for arg in sys.argv[1:]] or range(len(EXAMPLES))
     for number in numbers:
-        transcript, buttons = EXAMPLES[number - 1]
+        transcript, buttons = EXAMPLES[number]
         console.rule(title=f"============== EXAMPLE {number} ==============")
         # Cartesia Ink-2 (speech-to-text) hands us what the caller said. No audio here: it's text.
-        console.print(f'[cyan]Cartesia Ink-2 transcription:[/] "{transcript}"\n')
+        console.print(f'[cyan]User (Cartesia Ink-2 transcription):[/] "{transcript}"\n')
         show_old_way(buttons)
         await show_new_way(transcript)
 
