@@ -1,7 +1,4 @@
 .env
-!.env.exampple
-
-
 .venv/
 results/
 __pycache__/
