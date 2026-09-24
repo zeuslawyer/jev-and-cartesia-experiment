@@ -139,14 +139,6 @@ Transfer to: Baggage claims team
 
 The second caller is vague, so Jev isn't confident and the agent asks one follow-up question. The last caller is angry, so Jev prints `-> escalating straight to a human`.
 
-### Try your own sentence
-
-```bash
-uv run ivr_killer.py "my suitcase came off the carousel with the wheels smashed"
-```
-
-Expected: `Transfer to: Baggage claims team`
-
 **If it didn't work:** `TypeSafeAuthenticationError` means the TypeSafe key is wrong. Fix it in `.env` (Step 4).
 
 ## Demo 2: It knew before you finished (`early_intent.py`)
