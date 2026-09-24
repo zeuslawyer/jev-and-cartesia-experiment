@@ -5,7 +5,6 @@ Jev never sees the IVR menus, only the list of teams.
 The same request also asks one yes/no question: is this caller upset enough to need a human now?
 """
 import asyncio
-import sys
 
 from rich.console import Console
 from rich.tree import Tree
@@ -56,7 +55,7 @@ PICK_TEAM = Choice(
 
 def build_ivr_tree(menu, buttons, branch):
     """Draw the IVR under `branch`, with option numbers. `buttons` is the list of numbers still to press;
-    the path they lead to prints in bold green. None = nothing to highlight."""
+    the path they lead to prints in bold green. None = this branch is off the path."""
     for number, option in enumerate(menu.get("options", []), 1):
         is_team = "options" not in option
         on_path = buttons is not None and (buttons[:1] == [number] or (not buttons and is_team))
@@ -70,12 +69,11 @@ def show_old_way(buttons):
     """The IVR system: the full menu tree, the path a person presses, and how long they listen."""
     console.print("[red]Old way, IVR system:[/] the caller listens to the menus and presses buttons")
     console.print(build_ivr_tree(IVR, buttons, Tree(IVR["label"])))
-    if buttons:
-        menu, options_heard = IVR, 0
-        for number in buttons:
-            options_heard += len(menu["options"])
-            menu = menu["options"][number - 1]
-        console.print(f"IVR system: {len(buttons)} menus heard, ~{options_heard * SECONDS_PER_OPTION}s of listening\n")
+    menu, options_heard = IVR, 0
+    for number in buttons:
+        options_heard += len(menu["options"])
+        menu = menu["options"][number - 1]
+    console.print(f"IVR system: {len(buttons)} menus heard, ~{options_heard * SECONDS_PER_OPTION}s of listening\n")
 
 
 async def show_new_way(transcript):
@@ -102,8 +100,7 @@ async def show_new_way(transcript):
 
 
 async def main():
-    examples = [(transcript, None) for transcript in sys.argv[1:]] or EXAMPLES
-    for idx, (transcript, buttons) in enumerate(examples):
+    for idx, (transcript, buttons) in enumerate(EXAMPLES):
         console.rule(title=f"============== EXAMPLE {idx+1}==============")
         # Cartesia Ink-2 (speech-to-text) hands us what the caller said. No audio here: it's text.
         console.print(f'[cyan]Cartesia Ink-2 transcription:[/] "{transcript}"\n')
