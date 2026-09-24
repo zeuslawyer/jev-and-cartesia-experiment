@@ -1,0 +1,10 @@
+[project]
+name = "jev-voice-demos"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "anthropic>=1.8.0",
+    "python-dotenv>=1.2.3",
+    "rich>=15.0.0",
+    "typesafe-sdk>=0.7.1",
+]
