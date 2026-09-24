@@ -1,7 +1,7 @@
 """
-MENTAL MODEL: An IVR system makes the caller listen to every menu and press buttons.
-With Jev, the caller says one sentence and Jev picks the whole button sequence at once,
-from one list of every route through the IVR, with a confidence score.
+MENTAL MODEL: The old way, an IVR system makes the caller listen to menus and press buttons to reach a team.
+The new way, the caller says one sentence and Jev picks the team directly, with a confidence score.
+Jev never sees the IVR menus, only the list of teams.
 The same request also asks one yes/no question: is this caller upset enough to need a human now?
 """
 import asyncio
@@ -15,14 +15,15 @@ from lib.jev import IVR, ask
 
 CONFIDENCE_THRESHOLD = 0.95
 SECONDS_PER_OPTION = 3  # how long an IVR system takes to read out one option
-AGENT_ROUTE = "6"  # buttons for "Speak to an agent"
+HUMAN_TEAM = "General reservations agent"
 
+# Each example: what the caller said, and the buttons a person would press in the IVR system.
 EXAMPLES = [
-    "hi yeah my bag didn't come off the carousel in denver and nobody can find it",
-    "um i need to sort something out with my flight",
-    "i don't wanna cancel, i just need to move it to friday instead",
-    "not a refund, no, i want the points from my last flight, they never showed up",
-    "this is the third time you people lost my bag, i'm absolutely fed up, i want to talk to a human right now",
+    ("hi yeah my bag didn't come off the carousel in denver and nobody can find it", [4, 1]),
+    ("um i need to sort something out with my flight", [3]),
+    ("i don't wanna cancel, i just need to move it to friday instead", [3, 2, 1]),
+    ("not a refund, no, i want the points from my last flight, they never showed up", [5, 1]),
+    ("this is the third time you people lost my bag, i'm absolutely fed up, i want to talk to a human right now", [6]),
 ]
 ESCALATE = Noul(
     instructions="Is the caller agitated or frustrated enough that the call must go to a human next?",
@@ -34,80 +35,80 @@ ESCALATE = Noul(
 console = Console()
 
 
-def list_routes(menu, buttons="", labels=""):
-    """Flatten the IVR into every route a caller can end on.
-    Yields (buttons, labels, description, team), e.g. ("4-1", "Baggage > Lost bag", "Your bag never arrived...", "Baggage claims team").
-    Buttons are option numbers, counted from 1 in the order the IVR reads them out."""
-    for number, option in enumerate(menu["options"], 1):
+def list_teams(menu):
+    """Every team at the bottom of the IVR tree (the leaf nodes), with what callers want from it:
+    the description of the menu option just above it. A team can appear in more than one place."""
+    for option in menu["options"]:
         if "options" in option:
-            yield from list_routes(option, f"{buttons}-{number}".lstrip("-"), f"{labels} > {option['label']}".lstrip(" >"))
+            yield from list_teams(option)
         else:
-            yield buttons, labels, menu["description"], option["label"]
+            yield option["label"], menu["description"]
 
 
-ROUTES = {buttons: (labels, team) for buttons, labels, _, team in list_routes(IVR)}
-PICK_ROUTE = Choice(
-    instructions="Skyline Air phone line. Which route through the phone menu matches what the caller wants?",
-    criteria={buttons: f"{labels}: {description}" for buttons, labels, description, _ in list_routes(IVR)},
+TEAM_DESCRIPTIONS = {}
+for label, description in list_teams(IVR):
+    TEAM_DESCRIPTIONS.setdefault(label, []).append(description)
+PICK_TEAM = Choice(
+    instructions="Skyline Air phone line. Which team should handle what the caller wants?",
+    criteria={label: "; ".join(descriptions) for label, descriptions in TEAM_DESCRIPTIONS.items()},
 )
 
 
 def build_ivr_tree(menu, buttons, branch):
-    """Draw the IVR under `branch`. `buttons` is the list of option numbers still to press; the chosen path prints in bold green."""
+    """Draw the IVR under `branch`, with option numbers. `buttons` is the list of numbers still to press;
+    the path they lead to prints in bold green. None = nothing to highlight."""
     for number, option in enumerate(menu.get("options", []), 1):
-        on_path = buttons is not None and (buttons[:1] == [number] or not buttons)
-        text = f"{number} {option['label']}" if "options" in option else f"-> {option['label']}"
+        is_team = "options" not in option
+        on_path = buttons is not None and (buttons[:1] == [number] or (not buttons and is_team))
+        text = f"-> {option['label']}" if is_team else f"{number} {option['label']}"
         child = branch.add(f"[bold green]{text}[/]" if on_path else f"[dim]{text}[/]")
         build_ivr_tree(option, buttons[1:] if buttons is not None and on_path else None, child)
     return branch
 
 
-async def route_call(transcript):
-    # 1. Cartesia Ink-2 (speech-to-text) hands us what the caller said. No audio here: it's text.
-    console.print("[red]IVR System:[/] Hi there, welcome to Skyline Air.  How can I help you?")
-    console.print(f'[cyan]Cartesia Ink-2 transcription:[/] "{transcript}"\n')
-
-    # 2. One request to Jev: which route, and does the caller need a human? Both answered in parallel.
-    response, ms = await ask(transcript, {"route": PICK_ROUTE, "escalate": ESCALATE})
-    is_upset = response.nouls["escalate"].noul
-    answer = response.choices["route"]
-    console.print(f"[magenta]needs a human?[/] {is_upset:.2f}")
-    console.print(f"[yellow]Jev chose: {answer.choice} ({ROUTES[answer.choice][0]}) | confidence: {answer.confidence:.2f} | latency {ms:.0f} ms")
-
-    # 3. Upset caller? Skip the menus and hand them to a person.
-    route = answer.choice
-    if is_upset >= CONFIDENCE_THRESHOLD:
-        console.print("[bold magenta]-> escalating straight to a human[/]")
-        route = AGENT_ROUTE
-
-    # 4. Not sure? Ask one short question between the top two routes. No LLM.
-    elif answer.confidence < CONFIDENCE_THRESHOLD:
-        first, second = sorted(answer.probabilities, key=lambda route: answer.probabilities[route], reverse=True)[:2]
-        console.print(
-            f'    >>>> [yellow]Jev confidence below {CONFIDENCE_THRESHOLD}.[/] [red]IVR System:[/] asks: '
-            f"\"Is this about '{ROUTES[first][0]}' or '{ROUTES[second][0]}'?\"\n"
-        )
-        return
-
-    # 5. Show the path through the full IVR, then compare with pressing buttons.
-    buttons = [int(number) for number in route.split("-")]
-    console.print("\n\nHere's the path through the IVR tree:")
+def show_old_way(buttons):
+    """The IVR system: the full menu tree, the path a person presses, and how long they listen."""
+    console.print("[red]Old way, IVR system:[/] the caller listens to the menus and presses buttons")
     console.print(build_ivr_tree(IVR, buttons, Tree(IVR["label"])))
-    console.print(f"[green]Transfer to: {ROUTES[route][1]}[/]  (Sonic would say: \"Connecting you now.\")")
-    menu, options_heard = IVR, 0
-    for number in buttons:
-        options_heard += len(menu["options"])
-        menu = menu["options"][number - 1]
-    console.print(
-        f"IVR system: {len(buttons)} menus heard, ~{options_heard * SECONDS_PER_OPTION}s of listening"
-        f"   vs   Jev: 1 sentence spoken, response in {ms:.0f} ms\n"
-    )
+    if buttons:
+        menu, options_heard = IVR, 0
+        for number in buttons:
+            options_heard += len(menu["options"])
+            menu = menu["options"][number - 1]
+        console.print(f"IVR system: {len(buttons)} menus heard, ~{options_heard * SECONDS_PER_OPTION}s of listening\n")
+
+
+async def show_new_way(transcript):
+    """Jev: one request, two questions answered in parallel. Which team, and does the caller need a human?"""
+    console.print("[cyan]New way, Jev:[/] the caller says one sentence")
+    response, ms = await ask(transcript, {"team": PICK_TEAM, "escalate": ESCALATE})
+    is_upset = response.nouls["escalate"].noul
+    answer = response.choices["team"]
+    console.print(f"[magenta]needs a human?[/] {is_upset:.2f}")
+    console.print(f"[yellow]Jev chose: [bold]{answer.choice}[/] | confidence: {answer.confidence:.2f} | latency {ms:.0f} ms")
+
+    # Upset caller? Skip everything and hand them to a person.
+    if is_upset >= CONFIDENCE_THRESHOLD:
+        console.print(f"[bold magenta]-> escalating straight to a human[/]")
+        console.print(f"[green]Transfer to: {HUMAN_TEAM}[/]  (Sonic would say: \"Connecting you now.\")\n")
+    # Not sure? Ask one short question between the top two teams. No LLM.
+    elif answer.confidence < CONFIDENCE_THRESHOLD:
+        first, second = sorted(answer.probabilities, key=lambda team: answer.probabilities[team], reverse=True)[:2]
+        console.print(
+            f'    >>>> [yellow]Jev confidence below {CONFIDENCE_THRESHOLD}.[/] Agent asks: "Is this for {first} or {second}?"\n'
+        )
+    else:
+        console.print(f"[green]Transfer to: {answer.choice}[/]  (Sonic would say: \"Connecting you now.\")\n")
 
 
 async def main():
-    for idx, transcript in enumerate(sys.argv[1:] or EXAMPLES):
+    examples = [(transcript, None) for transcript in sys.argv[1:]] or EXAMPLES
+    for idx, (transcript, buttons) in enumerate(examples):
         console.rule(title=f"============== EXAMPLE {idx+1}==============")
-        await route_call(transcript)
+        # Cartesia Ink-2 (speech-to-text) hands us what the caller said. No audio here: it's text.
+        console.print(f'[cyan]Cartesia Ink-2 transcription:[/] "{transcript}"\n')
+        show_old_way(buttons)
+        await show_new_way(transcript)
 
 
 asyncio.run(main())
