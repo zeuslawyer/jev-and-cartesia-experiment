@@ -23,11 +23,11 @@
 {"text": "I want to join your frequent flyer program.", "expected": "Frequent flyer and upgrades", "category": "clear"}
 {"text": "When does my gold status expire?", "expected": "Frequent flyer and upgrades", "category": "clear"}
 {"text": "I can't log into my SkyMiles account.", "expected": "Frequent flyer and upgrades", "category": "clear"}
-{"text": "Can I just talk to a real person please?", "expected": "Speak to an agent", "category": "clear"}
-{"text": "Agent. Agent. Representative.", "expected": "Speak to an agent", "category": "clear"}
-{"text": "I'd like to speak with someone, a human.", "expected": "Speak to an agent", "category": "clear"}
-{"text": "Put me through to an operator.", "expected": "Speak to an agent", "category": "clear"}
-{"text": "I want to talk to a person, not a machine.", "expected": "Speak to an agent", "category": "clear"}
+{"text": "Can I just talk to a real person please?", "expected": "Speak to a human", "category": "clear"}
+{"text": "Agent. Agent. Representative.", "expected": "Speak to a human", "category": "clear"}
+{"text": "I'd like to speak with someone, a human.", "expected": "Speak to a human", "category": "clear"}
+{"text": "Put me through to an operator.", "expected": "Speak to a human", "category": "clear"}
+{"text": "I want to talk to a person, not a machine.", "expected": "Speak to a human", "category": "clear"}
 {"text": "I need to fix the spelling of my name and, uh, also pick a seat while I'm at it.", "expected": "Manage booking", "category": "multi_intent"}
 {"text": "I wanna add a meal and also, do you know if the flight's on time?", "expected": "Manage booking", "category": "multi_intent"}
 {"text": "Can I get an invoice for this booking, and also how do I join SkyMiles?", "expected": "Manage booking", "category": "multi_intent"}
@@ -53,11 +53,11 @@
 {"text": "How do I get platinum status, and is there wifi on the plane?", "expected": "Frequent flyer and upgrades", "category": "multi_intent"}
 {"text": "My SkyMiles account is locked and I've got a flight on Monday I need to check.", "expected": "Frequent flyer and upgrades", "category": "multi_intent"}
 {"text": "I want to use my miles for an upgrade and then maybe change my return date.", "expected": "Frequent flyer and upgrades", "category": "multi_intent"}
-{"text": "It's complicated, there's a refund and a bag and a seat thing, I just need a person.", "expected": "Speak to an agent", "category": "multi_intent"}
-{"text": "I've got like four different problems, can I talk to someone?", "expected": "Speak to an agent", "category": "multi_intent"}
-{"text": "Get me a human, and yes it's about my booking but I don't want the menu.", "expected": "Speak to an agent", "category": "multi_intent"}
-{"text": "Honestly just connect me to somebody, it's about a flight and some points.", "expected": "Speak to an agent", "category": "multi_intent"}
-{"text": "I need a representative, my situation involves two bookings and a credit.", "expected": "Speak to an agent", "category": "multi_intent"}
+{"text": "It's complicated, there's a refund and a bag and a seat thing, I just need a person.", "expected": "Speak to a human", "category": "multi_intent"}
+{"text": "I've got like four different problems, can I talk to someone?", "expected": "Speak to a human", "category": "multi_intent"}
+{"text": "Get me a human, and yes it's about my booking but I don't want the menu.", "expected": "Speak to a human", "category": "multi_intent"}
+{"text": "Honestly just connect me to somebody, it's about a flight and some points.", "expected": "Speak to a human", "category": "multi_intent"}
+{"text": "I need a representative, my situation involves two bookings and a credit.", "expected": "Speak to a human", "category": "multi_intent"}
 {"text": "I don't want to change the flight, I just want to pick a different seat.", "expected": "Manage booking", "category": "negation"}
 {"text": "Not a refund, I just need a receipt for what I paid.", "expected": "Manage booking", "category": "negation"}
 {"text": "I'm not cancelling, I just need to fix my last name on the ticket.", "expected": "Manage booking", "category": "negation"}
@@ -83,11 +83,11 @@
 {"text": "I'm not asking about a booking, I'm asking about my SkyMiles status.", "expected": "Frequent flyer and upgrades", "category": "negation"}
 {"text": "Not seat selection, an actual upgrade to business class.", "expected": "Frequent flyer and upgrades", "category": "negation"}
 {"text": "I don't need a refund, I need the missing miles added.", "expected": "Frequent flyer and upgrades", "category": "negation"}
-{"text": "I don't want the menu, I don't want a robot, just a person.", "expected": "Speak to an agent", "category": "negation"}
-{"text": "No, none of those options, let me talk to someone.", "expected": "Speak to an agent", "category": "negation"}
-{"text": "I don't want to explain it to a machine, get me an agent.", "expected": "Speak to an agent", "category": "negation"}
-{"text": "Not baggage, not refunds, not any of that. A human please.", "expected": "Speak to an agent", "category": "negation"}
-{"text": "I'm not gonna press buttons, connect me to a representative.", "expected": "Speak to an agent", "category": "negation"}
+{"text": "I don't want the menu, I don't want a robot, just a person.", "expected": "Speak to a human", "category": "negation"}
+{"text": "No, none of those options, let me talk to someone.", "expected": "Speak to a human", "category": "negation"}
+{"text": "I don't want to explain it to a machine, get me an agent.", "expected": "Speak to a human", "category": "negation"}
+{"text": "Not baggage, not refunds, not any of that. A human please.", "expected": "Speak to a human", "category": "negation"}
+{"text": "I'm not gonna press buttons, connect me to a representative.", "expected": "Speak to a human", "category": "negation"}
 {"text": "Um, there's something wrong with how my name shows up on the thing.", "expected": "Manage booking", "category": "vague"}
 {"text": "I need to, uh, sort out where I'm sitting.", "expected": "Manage booking", "category": "vague"}
 {"text": "My company needs some paperwork for the trip.", "expected": "Manage booking", "category": "vague"}
@@ -113,11 +113,11 @@
 {"text": "My card level, or tier, or whatever, did it change?", "expected": "Frequent flyer and upgrades", "category": "vague"}
 {"text": "I fly with you a lot, is there some kind of program?", "expected": "Frequent flyer and upgrades", "category": "vague"}
 {"text": "Can I use the points to make it, um, fancier?", "expected": "Frequent flyer and upgrades", "category": "vague"}
-{"text": "It's hard to explain, can someone just help me?", "expected": "Speak to an agent", "category": "vague"}
-{"text": "I've got a weird situation, is there anyone there?", "expected": "Speak to an agent", "category": "vague"}
-{"text": "Hello? Is this a person? I need a person.", "expected": "Speak to an agent", "category": "vague"}
-{"text": "None of this is working, who can I talk to?", "expected": "Speak to an agent", "category": "vague"}
-{"text": "It doesn't really fit any of the options, can I speak to somebody?", "expected": "Speak to an agent", "category": "vague"}
+{"text": "It's hard to explain, can someone just help me?", "expected": "Speak to a human", "category": "vague"}
+{"text": "I've got a weird situation, is there anyone there?", "expected": "Speak to a human", "category": "vague"}
+{"text": "Hello? Is this a person? I need a person.", "expected": "Speak to a human", "category": "vague"}
+{"text": "None of this is working, who can I talk to?", "expected": "Speak to a human", "category": "vague"}
+{"text": "It doesn't really fit any of the options, can I speak to somebody?", "expected": "Speak to a human", "category": "vague"}
 {"text": "What time does check-in open?", "expected": "stay", "category": "no_handoff"}
 {"text": "Is there wifi on the plane?", "expected": "stay", "category": "no_handoff"}
 {"text": "Thanks, that's all I needed.", "expected": "stay", "category": "no_handoff"}
