@@ -53,7 +53,7 @@ TEAM_DESCRIPTIONS = {}
 for label, description in list_teams(IVR):
     TEAM_DESCRIPTIONS.setdefault(label, []).append(description)
 PICK_TEAM = Choice(
-    instructions="Skyline Air phone line. Which team should handle what the caller wants?",
+    instructions="HiFly Airlines phone line. Which team should handle what the caller wants?",
     criteria={label: "; ".join(descriptions)
                                for label, descriptions in TEAM_DESCRIPTIONS.items()},
 )
@@ -94,7 +94,7 @@ async def show_new_way(transcript):
     response, ms = await ask_jev(transcript, {"team": PICK_TEAM, "escalate": ESCALATE})
     is_upset = response.nouls["escalate"].noul
     answer = response.choices["team"]
-    console.print(f"[magenta]needs a human?[/] {is_upset:.2f}")
+    console.print(f"[magenta]IS UPSET- ESCALATE?[/] {is_upset:.2f}")
     console.print(
         f"[yellow]Jev chose: [bold]{answer.choice}[/] | confidence: {answer.confidence:.2f} | latency {ms:.0f} ms")
     console.print(
@@ -109,7 +109,7 @@ async def show_new_way(transcript):
     elif answer.confidence < CONFIDENCE_THRESHOLD:
         first, second = sorted(
             answer.probabilities, key=lambda team: answer.probabilities[team], reverse=True)[:2]
-        console.print(f'    >>>> [yellow]Jev confidence below {CONFIDENCE_THRESHOLD}.[/]' )
+        console.print(f'    >>>> [yellow]Jev confidence below {CONFIDENCE_THRESHOLD} threshold.[/]' )
         console.print( f'    >>>> [red]Voice Agent clarifies:[/] "Is this for {first} or {second}?"\n')
     else:
         console.print(f"\n[green]Transfer to: {answer.choice}[/]  (Sonic would say: \"Connecting you now.\")\n")

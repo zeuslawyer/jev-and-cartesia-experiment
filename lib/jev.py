@@ -10,7 +10,7 @@ IVR = json.load(open("data/airline_ivr.json"))
 
 
 def build_menu_choice(menu):
-    """One phone menu -> one Jev Choice. Each option's label is the answer; its description is the rubric."""
+    """Each IVR menu option is mapped as a single Jev Choice primitive. Each option's label is the answer; its description is the rubric."""
     return Choice(
         instructions=f"The caller is at the '{menu['label']}' phone menu. Which option matches what the caller wants?",
         criteria={option["label"]: option["description"] for option in menu["options"]},

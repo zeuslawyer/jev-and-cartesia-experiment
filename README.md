@@ -1,13 +1,13 @@
 # Run three Jev voice-agent demos
 
-Each demo puts [Jev](https://docs.typesafe.ai) between what a caller said and who handles the call. Jev reads the caller's words and returns a decision with a confidence score. Speech-to-text (Cartesia Ink-2), the conversation LLM and text-to-speech (Cartesia Sonic) appear as labels. All demos route calls for Skyline Air, a made-up airline whose phone menu is in `data/airline_ivr.json`.
+These demos show when a voice agent should use a decision model like [Jev](https://docs.typesafe.ai) instead of an LLM, compared on speed, cost and accuracy. Jev reads the caller's words and returns an answer with probabilities and a confidence score. You pay only for input tokens ($0.042 per million); output is free. Speech-to-text (Cartesia Ink-2), the conversation LLM and text-to-speech (Cartesia Sonic) appear as labels. All demos use HiFly Airlines, a made-up airline whose phone menu is in `data/airline_ivr.json`.
 
 
-| File               | What it shows                                                                                |
-| ------------------ | -------------------------------------------------------------------------------------------- |
-| `ivr_killer.py`    | The old way: menus and buttons. The new way: one sentence, and Jev picks the team.           |
-| `early_intent.py`  | Jev guesses the destination on every new word and often knows it before the caller finishes. |
-| `jev_vs_claude.py` | Jev and Claude Sonnet 5 route the same calls (up to 150). Compares speed, accuracy and cost. |
+| File               | What it shows                                                                                                   |
+| ------------------ | --------------------------------------------------------------------------------------------------------------- |
+| `early_intent.py`  | Act early: detect what the caller wants while they're still talking. Only fast, cheap per-update decisions allow this. |
+| `ivr_killer.py`    | Cut hold time: one sentence replaces ~30 s of phone menus, and Jev's confidence decides transfer, follow-up or escalate. |
+| `jev_vs_claude.py` | The same decision, Claude Sonnet 5 vs Jev, on 150 calls: speed, accuracy and cost side by side.                  |
 
 
 **Result:** At the end, you'll have run all three demos. You'll know it worked when the last one prints a table comparing Claude and Jev.
@@ -69,7 +69,7 @@ cd jev-demos
 
 ### Step 3: Install the project
 
-**Why:** This downloads Python 3.12 and the four packages the demos use into a `.venv` folder in the project.
+**Why:** This downloads Python 3.12 and the packages the demos use into a `.venv` folder in the project.
 
 **Do this:**
 
@@ -118,9 +118,38 @@ Expected: `2`
 
 **If it didn't work:** `1` or `0` means a key is missing. Open `.env` and paste the missing key.
 
-## Demo 1: Kill the IVR (`ivr_killer.py`)
+## Demo 1: It knew before you finished (`early_intent.py`)
+
+Four callers replayed word by word, with real pauses. Jev guesses on every new word.
+
+**What it shows:** a voice agent can detect what the caller wants while they're still talking, and start an action early, such as looking up their booking. That needs a decision on every transcript update. Jev takes about 280 ms per decision and charges only for input. In Demo 3, Claude Sonnet 5 took about 1.6 s per decision, slower than new words arrive, and cost about 120 times more.
+
+### Run it
+
+```bash
+uv run early_intent.py
+```
+
+**You should see:** after about 30 seconds, one timeline per caller that ends like this:
+
+```text
+JEV KNEW at 2396 ms -> Baggage, 4004 ms before the caller finished
+wait-for-final answers at 6755 ms; guessing early already had it   ->   saved 355 ms of silence
+```
+
+Each timeline ends with either a `saved ... ms` line or `Jev never got confident early`. Both are normal. The second means Jev wasn't confident enough before the caller finished.
+
+**If it didn't work:** `TypeSafeAuthenticationError` means the TypeSafe key is wrong. Fix it in `.env` (Step 4).
+
+### Change the confidence threshold
+
+Open `early_intent.py`. Jev counts as confident only when its confidence is at or above `CONFIDENCE_THRESHOLD = 0.95`, near the top of the file. Change it to a number such as `0.9`, save, and run the demo again.
+
+## Demo 2: Kill the IVR (`ivr_killer.py`)
 
 Five example callers. For each one you see the old way, an IVR system's menu tree with the buttons a person would press, then the new way, where Jev picks the team from the caller's one sentence.
+
+**What it shows:** one sentence replaces about 30 seconds of menus. Jev picks the team and flags callers who need a human in one request, and its confidence decides whether to transfer, ask one follow-up question or escalate. An LLM could pick the team too, but in Demo 3 it was about 6 times slower and 120 times more expensive per decision.
 
 ### Run it
 
@@ -143,34 +172,11 @@ To run only some examples, pass their indexes (0 to 4), e.g. `uv run ivr_killer.
 
 **If it didn't work:** `TypeSafeAuthenticationError` means the TypeSafe key is wrong. Fix it in `.env` (Step 4).
 
-## Demo 2: It knew before you finished (`early_intent.py`)
-
-Four callers replayed word by word, with real pauses. Jev guesses on every new word.
-
-### Run it
-
-```bash
-uv run early_intent.py
-```
-
-**You should see:** after about 30 seconds, one timeline per caller that ends like this:
-
-```text
-JEV KNEW at 2396 ms -> Baggage
-wait-for-final: 6755 ms   vs   speculative: 2396 ms   ->   saved 4358 ms
-```
-
-Each timeline ends with either a `saved ... ms` line or `Jev never got confident early`. Both are normal. The second means Jev wasn't confident enough before the caller finished.
-
-**If it didn't work:** `TypeSafeAuthenticationError` means the TypeSafe key is wrong. Fix it in `.env` (Step 4).
-
-### Change the confidence threshold
-
-Each demo acts only when Jev's confidence is at or above `CONFIDENCE_THRESHOLD = 0.95`, near the top of the file. Change it to a number such as `0.9`, save, and run the demo again.
-
-## Demo 3: Replace your routing LLM with Jev (`jev_vs_claude.py`)
+## Demo 3: Jev vs Claude, the same decision (`jev_vs_claude.py`)
 
 The same calls, sent to Claude and to Jev, then both are scored.
+
+**What it shows:** in our 150-call run, Jev was more accurate (92% vs 85%), about 6 times faster (277 ms vs 1612 ms typical) and about 120 times cheaper ($0.021 vs $2.58 per 1,000 calls). When Jev's confidence was 0.95 or higher, it was right 98% of the time. Your numbers will vary a little.
 
 ### Run it
 
@@ -186,10 +192,10 @@ For all 150 calls, which takes about 5 minutes, leave off the number:
 uv run jev_vs_claude.py
 ```
 
-**You should see:** one progress line per call with both speeds, like `3/10 claude 1003 ms  jev 282 ms | ...`. Then a table titled `Routing: Claude Sonnet 5 vs Jev`, two grids of right and wrong answers, and a cost line. The table's first row shows two speeds:
+**You should see:** one progress line per call with both speeds, like `3/10 claude 1003 ms  jev 282 ms | ...`. Then a table titled `Routing: Claude Sonnet 5 vs Jev (150 calls)` (or `10 calls`), two grids of right and wrong answers, and a cost line. The table's first row shows two speeds:
 
 ```text
-latency p50 / p95 (ms)  │ 1620 / 2900 │ 372 / 542
+latency p50 / p95 (ms)  │ 1612 / 3315 │ 277 / 407
 ```
 
 The first column is Claude and the second is Jev. p50 is the typical call and p95 is the slowest 5%. To print the last table again without calling the APIs, run `uv run jev_vs_claude.py --report`.
@@ -198,7 +204,12 @@ The first column is Claude and the second is Jev. p50 is the typical call and p9
 
 ## Undo / clean up
 
-1. Delete the project folder. This also deletes `.env` and the API keys in it.
+1. Delete the project folder. This also deletes `.env` and the API keys in it. From inside the folder, run:
+
+```bash
+cd .. && rm -rf jev-demos
+```
+
 2. If you installed uv in Step 1 and want it gone, run these one at a time:
 
 ```bash

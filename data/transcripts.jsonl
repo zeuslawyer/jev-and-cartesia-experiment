@@ -22,7 +22,7 @@
 {"text": "Can I use my miles to upgrade to business?", "expected": "Frequent flyer and upgrades", "category": "clear"}
 {"text": "I want to join your frequent flyer program.", "expected": "Frequent flyer and upgrades", "category": "clear"}
 {"text": "When does my gold status expire?", "expected": "Frequent flyer and upgrades", "category": "clear"}
-{"text": "I can't log into my SkyMiles account.", "expected": "Frequent flyer and upgrades", "category": "clear"}
+{"text": "I can't log into my FakeFlyerMiles account.", "expected": "Frequent flyer and upgrades", "category": "clear"}
 {"text": "Can I just talk to a real person please?", "expected": "Speak to a human", "category": "clear"}
 {"text": "Agent. Agent. Representative.", "expected": "Speak to a human", "category": "clear"}
 {"text": "I'd like to speak with someone, a human.", "expected": "Speak to a human", "category": "clear"}
@@ -30,7 +30,7 @@
 {"text": "I want to talk to a person, not a machine.", "expected": "Speak to a human", "category": "clear"}
 {"text": "I need to fix the spelling of my name and, uh, also pick a seat while I'm at it.", "expected": "Manage booking", "category": "multi_intent"}
 {"text": "I wanna add a meal and also, do you know if the flight's on time?", "expected": "Manage booking", "category": "multi_intent"}
-{"text": "Can I get an invoice for this booking, and also how do I join SkyMiles?", "expected": "Manage booking", "category": "multi_intent"}
+{"text": "Can I get an invoice for this booking, and also how do I join FakeFlyerMiles?", "expected": "Manage booking", "category": "multi_intent"}
 {"text": "I need to update my passport details and, um, maybe add a bag later.", "expected": "Manage booking", "category": "multi_intent"}
 {"text": "Mainly I need to request a wheelchair, and I guess check my points too.", "expected": "Manage booking", "category": "multi_intent"}
 {"text": "I need to cancel my flight, and I also have some points I wanna check on.", "expected": "Cancellations and refunds", "category": "multi_intent"}
@@ -51,7 +51,7 @@
 {"text": "My points are missing and I also want to upgrade my next flight.", "expected": "Frequent flyer and upgrades", "category": "multi_intent"}
 {"text": "I want to upgrade to premium, and, uh, can I pick my seat there too?", "expected": "Frequent flyer and upgrades", "category": "multi_intent"}
 {"text": "How do I get platinum status, and is there wifi on the plane?", "expected": "Frequent flyer and upgrades", "category": "multi_intent"}
-{"text": "My SkyMiles account is locked and I've got a flight on Monday I need to check.", "expected": "Frequent flyer and upgrades", "category": "multi_intent"}
+{"text": "My FakeFlyerMiles account is locked and I've got a flight on Monday I need to check.", "expected": "Frequent flyer and upgrades", "category": "multi_intent"}
 {"text": "I want to use my miles for an upgrade and then maybe change my return date.", "expected": "Frequent flyer and upgrades", "category": "multi_intent"}
 {"text": "It's complicated, there's a refund and a bag and a seat thing, I just need a person.", "expected": "Speak to a human", "category": "multi_intent"}
 {"text": "I've got like four different problems, can I talk to someone?", "expected": "Speak to a human", "category": "multi_intent"}
@@ -80,7 +80,7 @@
 {"text": "I'm not cancelling anything, I just need my luggage found.", "expected": "Baggage", "category": "negation"}
 {"text": "Not a refund, no, I want the points from my last flight.", "expected": "Frequent flyer and upgrades", "category": "negation"}
 {"text": "I don't want to change flights, I want to upgrade the one I've got.", "expected": "Frequent flyer and upgrades", "category": "negation"}
-{"text": "I'm not asking about a booking, I'm asking about my SkyMiles status.", "expected": "Frequent flyer and upgrades", "category": "negation"}
+{"text": "I'm not asking about a booking, I'm asking about my FakeFlyerMiles status.", "expected": "Frequent flyer and upgrades", "category": "negation"}
 {"text": "Not seat selection, an actual upgrade to business class.", "expected": "Frequent flyer and upgrades", "category": "negation"}
 {"text": "I don't need a refund, I need the missing miles added.", "expected": "Frequent flyer and upgrades", "category": "negation"}
 {"text": "I don't want the menu, I don't want a robot, just a person.", "expected": "Speak to a human", "category": "negation"}

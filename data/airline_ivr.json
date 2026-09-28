@@ -1,5 +1,5 @@
 {
-  "label": "Skyline Air",
+  "label": "HiFly Airlines",
   "description": "Main menu",
   "options": [
     {
@@ -38,7 +38,7 @@
             {"label": "Travel credit", "description": "Refund issued as a voucher or travel credit", "options": [{"label": "Travel credit team", "description": "Handles vouchers and travel credits"}]}
           ]
         },
-        {"label": "Airline cancelled my flight", "description": "Skyline Air cancelled your flight and you want compensation or a refund", "options": [{"label": "Disruption compensation team", "description": "Handles refunds and compensation for airline cancellations"}]}
+        {"label": "Airline cancelled my flight", "description": "HiFly Airlines cancelled your flight and you want compensation or a refund", "options": [{"label": "Disruption compensation team", "description": "Handles refunds and compensation for airline cancellations"}]}
       ]
     },
     {
@@ -76,11 +76,11 @@
     },
     {
       "label": "Frequent flyer and upgrades",
-      "description": "SkyMiles points, status and cabin upgrades",
+      "description": "FakeFlyerMiles points, status and cabin upgrades",
       "options": [
-        {"label": "Missing points", "description": "Points from a flight or partner did not show up", "options": [{"label": "SkyMiles service team", "description": "Handles missing points claims"}]},
+        {"label": "Missing points", "description": "Points from a flight or partner did not show up", "options": [{"label": "FakeFlyerMiles service team", "description": "Handles missing points claims"}]},
         {"label": "Upgrade my seat", "description": "Upgrade to business or premium, with points or money", "options": [{"label": "Upgrades team", "description": "Handles cabin upgrades"}]},
-        {"label": "Status and membership", "description": "Tier status, account login or joining SkyMiles", "options": [{"label": "SkyMiles service team", "description": "Handles membership and status"}]}
+        {"label": "Status and membership", "description": "Tier status, account login or joining FakeFlyerMiles", "options": [{"label": "FakeFlyerMiles service team", "description": "Handles membership and status"}]}
       ]
     },
     {

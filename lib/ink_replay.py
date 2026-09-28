@@ -4,7 +4,7 @@ import json
 TURNS = json.load(open("data/turns.json"))
 
 
-async def replay(turn):
+async def replay_turn_events(turn):
     """Fake microphone: yields scripted Ink-2 turn events, waiting the real gap between each."""
     last_ms = 0
     for event in turn["events"]:
