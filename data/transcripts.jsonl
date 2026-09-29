@@ -118,33 +118,33 @@
 {"text": "Hello? Is this a person? I need a person.", "expected": "Speak to a human", "category": "vague"}
 {"text": "None of this is working, who can I talk to?", "expected": "Speak to a human", "category": "vague"}
 {"text": "It doesn't really fit any of the options, can I speak to somebody?", "expected": "Speak to a human", "category": "vague"}
-{"text": "What time does check-in open?", "expected": "stay", "category": "no_handoff"}
-{"text": "Is there wifi on the plane?", "expected": "stay", "category": "no_handoff"}
-{"text": "Thanks, that's all I needed.", "expected": "stay", "category": "no_handoff"}
-{"text": "Sorry, can you say that again?", "expected": "stay", "category": "no_handoff"}
-{"text": "Hang on one sec, let me grab my, um, my booking number.", "expected": "stay", "category": "no_handoff"}
-{"text": "Okay, great, thank you so much.", "expected": "stay", "category": "no_handoff"}
-{"text": "How early should I get to the airport for an international flight?", "expected": "stay", "category": "no_handoff"}
-{"text": "Which terminal do you fly out of at JFK?", "expected": "stay", "category": "no_handoff"}
-{"text": "Do you serve food on the flight?", "expected": "stay", "category": "no_handoff"}
-{"text": "Hi, good morning.", "expected": "stay", "category": "no_handoff"}
-{"text": "Yeah, that's right.", "expected": "stay", "category": "no_handoff"}
-{"text": "No, that's everything, bye.", "expected": "stay", "category": "no_handoff"}
-{"text": "Can I bring my laptop through security?", "expected": "stay", "category": "no_handoff"}
-{"text": "What's the, uh, the website address again?", "expected": "stay", "category": "no_handoff"}
-{"text": "Do you have a mobile app?", "expected": "stay", "category": "no_handoff"}
-{"text": "How long is the flight to Miami, roughly?", "expected": "stay", "category": "no_handoff"}
-{"text": "Is the airport lounge in terminal two?", "expected": "stay", "category": "no_handoff"}
-{"text": "Can you spell that for me?", "expected": "stay", "category": "no_handoff"}
-{"text": "Okay, one moment, my kid's talking to me.", "expected": "stay", "category": "no_handoff"}
-{"text": "Do I need to print my boarding pass?", "expected": "stay", "category": "no_handoff"}
-{"text": "Are there power outlets at the seats?", "expected": "stay", "category": "no_handoff"}
-{"text": "Is online check-in available for my flight?", "expected": "stay", "category": "no_handoff"}
-{"text": "Mm-hmm, okay, got it.", "expected": "stay", "category": "no_handoff"}
-{"text": "What are your phone line hours?", "expected": "stay", "category": "no_handoff"}
-{"text": "Is it, uh, is it the same number for Spanish?", "expected": "stay", "category": "no_handoff"}
-{"text": "Does the plane have entertainment screens?", "expected": "stay", "category": "no_handoff"}
-{"text": "Perfect, you've been really helpful.", "expected": "stay", "category": "no_handoff"}
-{"text": "Can I bring a bottle of water through security?", "expected": "stay", "category": "no_handoff"}
-{"text": "What's the time difference in Honolulu?", "expected": "stay", "category": "no_handoff"}
-{"text": "Sorry, I didn't catch that, what was the first part?", "expected": "stay", "category": "no_handoff"}
+{"text": "What time does check-in open?", "expected": "no handoff", "category": "no_handoff"}
+{"text": "Is there wifi on the plane?", "expected": "no handoff", "category": "no_handoff"}
+{"text": "Thanks, that's all I needed.", "expected": "no handoff", "category": "no_handoff"}
+{"text": "Sorry, can you say that again?", "expected": "no handoff", "category": "no_handoff"}
+{"text": "Hang on one sec, let me grab my, um, my booking number.", "expected": "no handoff", "category": "no_handoff"}
+{"text": "Okay, great, thank you so much.", "expected": "no handoff", "category": "no_handoff"}
+{"text": "How early should I get to the airport for an international flight?", "expected": "no handoff", "category": "no_handoff"}
+{"text": "Which terminal do you fly out of at JFK?", "expected": "no handoff", "category": "no_handoff"}
+{"text": "Do you serve food on the flight?", "expected": "no handoff", "category": "no_handoff"}
+{"text": "Hi, good morning.", "expected": "no handoff", "category": "no_handoff"}
+{"text": "Yeah, that's right.", "expected": "no handoff", "category": "no_handoff"}
+{"text": "No, that's everything, bye.", "expected": "no handoff", "category": "no_handoff"}
+{"text": "Can I bring my laptop through security?", "expected": "no handoff", "category": "no_handoff"}
+{"text": "What's the, uh, the website address again?", "expected": "no handoff", "category": "no_handoff"}
+{"text": "Do you have a mobile app?", "expected": "no handoff", "category": "no_handoff"}
+{"text": "How long is the flight to Miami, roughly?", "expected": "no handoff", "category": "no_handoff"}
+{"text": "Is the airport lounge in terminal two?", "expected": "no handoff", "category": "no_handoff"}
+{"text": "Can you spell that for me?", "expected": "no handoff", "category": "no_handoff"}
+{"text": "Okay, one moment, my kid's talking to me.", "expected": "no handoff", "category": "no_handoff"}
+{"text": "Do I need to print my boarding pass?", "expected": "no handoff", "category": "no_handoff"}
+{"text": "Are there power outlets at the seats?", "expected": "no handoff", "category": "no_handoff"}
+{"text": "Is online check-in available for my flight?", "expected": "no handoff", "category": "no_handoff"}
+{"text": "Mm-hmm, okay, got it.", "expected": "no handoff", "category": "no_handoff"}
+{"text": "What are your phone line hours?", "expected": "no handoff", "category": "no_handoff"}
+{"text": "Is it, uh, is it the same number for Spanish?", "expected": "no handoff", "category": "no_handoff"}
+{"text": "Does the plane have entertainment screens?", "expected": "no handoff", "category": "no_handoff"}
+{"text": "Perfect, you've been really helpful.", "expected": "no handoff", "category": "no_handoff"}
+{"text": "Can I bring a bottle of water through security?", "expected": "no handoff", "category": "no_handoff"}
+{"text": "What's the time difference in Honolulu?", "expected": "no handoff", "category": "no_handoff"}
+{"text": "Sorry, I didn't catch that, what was the first part?", "expected": "no handoff", "category": "no_handoff"}

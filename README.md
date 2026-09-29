@@ -122,7 +122,7 @@ Expected: `2`
 
 Four callers replayed word by word, with real pauses. Jev guesses on every new word.
 
-**What it shows:** a voice agent can detect what the caller wants while they're still talking, and start an action early, such as looking up their booking. That needs a decision on every transcript update. Jev takes about 280 ms per decision and charges only for input. In Demo 3, Claude Sonnet 5 took about 1.6 s per decision, slower than new words arrive, and cost about 120 times more.
+**What it shows:** a voice agent can detect what the caller wants while they're still talking, and start an action early, such as looking up their booking. That needs a decision on every transcript update. Jev takes about 250 ms per decision and charges only for input. In Demo 3, Claude Sonnet 5 took about 1.9 s per decision, slower than new words arrive, and cost about 120 times more.
 
 ### Run it
 
@@ -149,7 +149,7 @@ Open `early_intent.py`. Jev counts as confident only when its confidence is at o
 
 Five example callers. For each one you see the old way, an IVR system's menu tree with the buttons a person would press, then the new way, where Jev picks the team from the caller's one sentence.
 
-**What it shows:** one sentence replaces about 30 seconds of menus. Jev picks the team and flags callers who need a human in one request, and its confidence decides whether to transfer, ask one follow-up question or escalate. An LLM could pick the team too, but in Demo 3 it was about 6 times slower and 120 times more expensive per decision.
+**What it shows:** one sentence replaces about 30 seconds of menus. Jev picks the team and flags callers who need a human in one request, and its confidence decides whether to transfer, ask one follow-up question or escalate. An LLM could pick the team too, but in Demo 3 it was about 7 times slower and 120 times more expensive per decision.
 
 ### Run it
 
@@ -176,7 +176,7 @@ To run only some examples, pass their indexes (0 to 4), e.g. `uv run ivr_killer.
 
 The same calls, sent to Claude and to Jev, then both are scored.
 
-**What it shows:** in our 150-call run, Jev was more accurate (92% vs 85%), about 6 times faster (277 ms vs 1612 ms typical) and about 120 times cheaper ($0.021 vs $2.58 per 1,000 calls). When Jev's confidence was 0.95 or higher, it was right 98% of the time. Your numbers will vary a little.
+**What it shows:** in our 150-call run, Jev was more accurate (94% vs 89%), about 7 times faster (248 ms vs 1888 ms typical) and about 120 times cheaper ($0.021 vs $2.58 per 1,000 calls). When Jev's confidence was 0.95 or higher, it was right 98% of the time. Your numbers will vary a little.
 
 ### Run it
 
@@ -192,10 +192,10 @@ For all 150 calls, which takes about 5 minutes, leave off the number:
 uv run jev_vs_claude.py
 ```
 
-**You should see:** one progress line per call with both speeds, like `3/10 claude 1003 ms  jev 282 ms | ...`. Then a table titled `Routing: Claude Sonnet 5 vs Jev (150 calls)` (or `10 calls`), two grids of right and wrong answers, and a cost line. The table's first row shows two speeds:
+**You should see:** one progress line per call with both speeds, like `3/10 claude 1003 ms  jev 282 ms | ...`. Then a table titled `Routing: Claude Sonnet 5 vs Jev (150 calls)` (or `10 calls`), and a cost line. The table's first row shows two speeds:
 
 ```text
-latency p50 / p95 (ms)  │ 1612 / 3315 │ 277 / 407
+latency p50 typical / p95 slow end (ms)  │ 1888 / 3301 │ 248 / 308
 ```
 
 The first column is Claude and the second is Jev. p50 is the typical call and p95 is the slowest 5%. To print the last table again without calling the APIs, run `uv run jev_vs_claude.py --report`.
